@@ -1,9 +1,10 @@
 import { StyleSheet } from "react-native";
+import Layout from "../../constants/Layout";
 const styles = StyleSheet.create({
-  wrapper: {
+  container: {
+    padding: Layout.defaultPadding,
     flex: 1,
-    paddingLeft: "5%",
-    paddingRight: "5%"
+    backgroundColor: "#fff"
   }
 });
 export default styles;

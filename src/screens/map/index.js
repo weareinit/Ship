@@ -1,8 +1,6 @@
 import React from "react";
-import { ExpoConfigView } from "@expo/samples";
-import { Text } from "react-native";
-import Wrapper from "../../components/screenWrapper";
-
+import { Text, View } from "react-native";
+import styles from "./styles";
 export default class Map extends React.Component {
   static navigationOptions = {
     title: "Maps"
@@ -10,13 +8,9 @@ export default class Map extends React.Component {
 
   render() {
     return (
-      <Wrapper>
+      <View style={styles.conatiner}>
         <Text>Map</Text>
-      </Wrapper>
+      </View>
     );
   }
 }
-
-// /* Go ahead and delete ExpoConfigView and replace it with your
-//  * content, we just wanted to give you a quick view of your config */
-// return <ExpoConfigView />;

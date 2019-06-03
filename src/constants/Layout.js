@@ -1,4 +1,5 @@
 import { Dimensions } from "react-native";
+import Colors from "./Colors";
 
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
@@ -9,23 +10,20 @@ export default {
     height
   },
   isSmallDevice: width < 375,
-  screenContainer: {
-    padding: "5%"
-  },
+  defaultPadding: "5%",
+ 
   heading: {
-    fontSize: 30,
-    color: "black",
-    fontWeiht: 900
+    fontSize: 35,
+    fontWeight: "900",
+    marginBottom:  (height * 0.1) / 3
   },
   subHeading: {
     fontSize: 18,
-    color: "gray",
-    fontWeiht: 900
+    fontWeight: "700",
+    marginBottom:  (height * 0.1) / 4
   },
   body: {
     fontSize: 14,
-    color: "brown",
-    fontWeiht: 900
-  },
-  
+    fontWeight: "500"
+  }
 };
