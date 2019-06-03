@@ -11,19 +11,20 @@ export default {
   },
   isSmallDevice: width < 375,
   defaultPadding: "5%",
- 
+
   heading: {
     fontSize: 35,
     fontWeight: "900",
-    marginBottom:  (height * 0.1) / 3
+    marginBottom: (height * 0.1) / 3
   },
   subHeading: {
     fontSize: 18,
     fontWeight: "700",
-    marginBottom:  (height * 0.1) / 4
+    marginBottom: (height * 0.1) / 4
   },
   body: {
     fontSize: 14,
     fontWeight: "500"
-  }
+  },
+  menuIconSize: 32
 };

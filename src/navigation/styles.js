@@ -1,3 +1,5 @@
+import Layout from "../constants/Layout";
+
 const defaultStyles = {
   defaultNavigationOptions: {
     headerStyle: {
@@ -15,7 +17,7 @@ const defaultStyles = {
 
 const iconStyle = {
   style: { marginBottom: -3 },
-  size: 32
+  size: Layout.menuIconSize
 };
 
 const tabBarOptions = {
