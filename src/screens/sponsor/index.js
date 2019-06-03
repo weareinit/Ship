@@ -1,7 +1,6 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import Wrapper from "../../components/screenWrapper";
-
+import { Text, View } from "react-native";
+import styles from "./styles";
 export default class Sponsor extends React.Component {
   static navigationOptions = {
     title: "Sponsors"
@@ -9,18 +8,9 @@ export default class Sponsor extends React.Component {
 
   render() {
     return (
-      <Wrapper>
-        <View style={styles.container}>
-          <Text>Sponsor</Text>
-        </View>
-      </Wrapper>
+      <View style={styles.container}>
+        <Text>Sponsor</Text>
+      </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff"
-  }
-});

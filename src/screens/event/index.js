@@ -1,6 +1,6 @@
 import React from "react";
-import { Platform, StyleSheet, Text, View, ListView } from "react-native";
-import Wrapper from "../../components/screenWrapper";
+import { Text, View, ListView } from "react-native";
+import styles from "./styles";
 
 class Event extends React.Component {
   static navigationOptions = {
@@ -12,18 +12,11 @@ class Event extends React.Component {
   }
   render() {
     return (
-      <Wrapper>
+      <View style={styles.container}>
         <Text>Schedule</Text>
-      </Wrapper>
+      </View>
     );
   }
 }
 
 export default Event;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff"
-  }
-});
