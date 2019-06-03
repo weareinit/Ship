@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     marginTop: (height * 0.05) / 3,
     marginBottom: (height * 0.1) / 3, //10% of card height
     borderWidth: 0.5,
-    borderColor: Colors.SHELL_SAND,
+    borderColor: Colors.SHELL_LIGHT_BROWN,
     backgroundColor: Colors.SHELL_TEAL
     // shadowColor: "#000",
     // shadowOffset: {

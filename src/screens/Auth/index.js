@@ -11,7 +11,7 @@ import { SafeAreaView } from "react-navigation";
 
 import { login } from "../../services";
 //themed components
-import Button from "../../components/button";
+import { Button } from "../../components/button";
 import IconWrapper from "../../components/iconWrapper";
 import TextInput from "../../components/textInput";
 import styles from "./styles";
@@ -115,7 +115,6 @@ class AuthScreen extends React.Component {
     if (await login(credentials)) {
       this.props.navigation.navigate("Main");
     }
-    
   };
 
   _signOutAsync = async () => {
