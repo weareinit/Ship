@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, View, ScrollView } from "react-native";
-import AnnoucementCard from "../../components/cards/announcements";
+import AnnoucementCard from "../../components/homeCard";
 import styles from "./styles";
 export default class Home extends React.Component {
   constructor(props) {
