@@ -11,8 +11,8 @@ const styles = StyleSheet.create({
   userMessage: {
     fontSize: 25,
     fontWeight: "700",
-    color: Colors.SHELL_LIGHT_BROWN,
-    marginBottom: "5%"
+    color: Colors.SHELL_LIGHT_GRAY,
+    
   }
 });
 export default styles;

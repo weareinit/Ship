@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, View, ListView } from "react-native";
-import {ButtonGroup} from "../../components/button";
+import ScheduleFilter from "../../components/scheduleFilter";
 import styles from "./styles";
 
 class Event extends React.Component {
@@ -18,7 +18,7 @@ class Event extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <ButtonGroup title="Sign In" handlePress={this._toggleLogin} />
+        <ScheduleFilter />
         <Text>Schedule</Text>
       </View>
     );
