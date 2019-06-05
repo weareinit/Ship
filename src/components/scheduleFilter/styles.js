@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 import Colors from "../../constants/Colors";
+import Layout from "../../constants/Layout";
 
 export default (styles = StyleSheet.create({
   buttonGroupContainer: {
@@ -35,10 +36,10 @@ export default (styles = StyleSheet.create({
     backgroundColor: "transparent"
   },
   safeArea: {
+    padding: Layout.defaultPadding,
     backgroundColor: "white",
     height: "100%",
-    alignItems: "center",
-    justifyContent: "space-around"
+    alignItems: "center"
   },
   title: {
     color: Colors.SHELL_DARK_BROWN,
@@ -60,5 +61,8 @@ export default (styles = StyleSheet.create({
     fontWeight: "500",
     marginBottom: 10,
     marginLeft: 10
+  },
+  backIcon: {
+    alignSelf: "flex-end"
   }
 }));

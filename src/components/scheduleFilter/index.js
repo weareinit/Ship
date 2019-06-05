@@ -62,6 +62,18 @@ class ScheduleFilter extends React.Component {
       }}
     >
       <SafeAreaView style={styles.safeArea}>
+        <TouchableHighlight
+          style={styles.backIcon}
+          onPress={() => {
+            this.shouldModalShow();
+          }}
+        >
+          <IconWrapper
+            size={40}
+            name={Platform.OS === "ios" ? `ios-close` : `md-arrow-round-back`}
+            color={Colors.SHELL_MID_BROWN}
+          />
+        </TouchableHighlight>
         <View>
           <Text style={styles.title}>Sort by</Text>
           {Object.values(filters).map((option, id) => (
@@ -95,22 +107,6 @@ class ScheduleFilter extends React.Component {
             </TouchableOpacity>
           ))}
         </View>
-
-        <TouchableHighlight
-          onPress={() => {
-            this.shouldModalShow();
-          }}
-        >
-          <IconWrapper
-            size={100}
-            name={Platform.OS === "ios" ? `ios-arrow-down` : `md-close`}
-            color={
-              this.state.filter
-                ? Colors.SHELL_DARK_BROWN
-                : Colors.SHELL_LIGHT_BROWN
-            }
-          />
-        </TouchableHighlight>
       </SafeAreaView>
     </Modal>
   );
