@@ -6,11 +6,11 @@ export default (styles = StyleSheet.create({
     padding: 15,
     marginTop: 40,
     borderRadius: 25,
-    width: "100%",
-    backgroundColor: Colors.SHELL_DARK_BROWN,
+    width: "80%",
+    backgroundColor: Colors.SHELL_LIGHT_BROWN,
     alignItems: "center",
     borderWidth: 0.5,
-    borderColor: "black"
+    borderColor: Colors.SHELL_SAND
   },
   buttonText: {
     color: Colors.SHELL_WHITE,

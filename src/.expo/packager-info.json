@@ -1,9 +1,9 @@
 {
   "expoServerNgrokUrl": "https://93-vcx.jehfkemsy.src.exp.direct",
   "packagerNgrokUrl": "https://packager.93-vcx.jehfkemsy.src.exp.direct",
-  "ngrokPid": 6012,
-  "devToolsPort": 19003,
+  "ngrokPid": 7328,
+  "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 12036
+  "packagerPid": 14664
 }
