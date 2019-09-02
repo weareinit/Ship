@@ -3,8 +3,8 @@ import { Text, SectionList } from "react-native";
 import { SafeAreaView } from "react-navigation";
 
 import styles from "./styles";
-import SponsorCard from "../../components/sponsorCard";
-import IconWrapper from "../../components/iconWrapper";
+import SponsorCard from "../../components/SponsorCard";
+import IconWrapper from "../../components/IconWrapper";
 
 export default class Sponsor extends React.Component {
   static navigationOptions = {

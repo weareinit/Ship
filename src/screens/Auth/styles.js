@@ -1,43 +1,43 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
+import layout from "../../constants/Layout";
 
 const styles = StyleSheet.create({
-    background: {
-        flex: 1,
-        width: undefined,
-        height: undefined,
-    },
-    container: {
-        height: '100%',
-        width: '100%',
-        paddingLeft: '5%',
-        paddingRight: '5%',
-        // backgroundColor: 'rgb(242, 226, 184)',
-    },
-    formContainer: {
-        flex: 4,
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: '100%',
-    },
-    layoutTrick: {
-        flex: 3,
-    },
-    inputIcons: {
-        paddingLeft: 10,
-        paddingRight: 10
-    },
-    backButton: {
-        paddingTop: 30,
-        color: '#675C50',
-        alignSelf: 'flex-end',
-        alignItems: 'center',
-        flexDirection: 'row'
-    },
-    logo: {
-        flex: 4,
-        width: '100%',
-        height: undefined,
-    },
+  container: {
+    flex: 1,
+    paddingHorizontal: layout.defaultPadding,
+    width: layout.width,
+    height: layout.height,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  form_container: {
+    width: layout.width * 0.9
+  },
+  welcome_message: {
+    alignSelf: "center",
+    marginBottom: 30
+  },
+  forgot_password: {
+    alignSelf: "flex-end",
+    marginBottom: 50
+  },
+  signup_container: {
+    alignSelf: "center",
+    marginTop: 100,
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "row"
+  },
+  signup: {
+    fontWeight: "700"
+  },
+
+  logo: {
+    width: layout.width * 0.8,
+    height: 100,
+    alignSelf: "center",
+    marginBottom: 50
+  }
 });
 
-module.exports = styles;
+export default styles;

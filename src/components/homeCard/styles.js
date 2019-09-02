@@ -26,10 +26,12 @@ const styles = StyleSheet.create({
     // elevation: 8
   },
   title: Object.assign(Layout.heading, {
-    color: Colors.SHELL_WHITE
+    color: Colors.SHELL_WHITE,
+    marginBottom: (height * 0.1) / 3
   }),
   subTitle: Object.assign(Layout.subHeading, {
-    color: Colors.SHELL_LIGHT_GRAY
+    color: Colors.SHELL_LIGHT_GRAY,
+    marginBottom: (height * 0.1) / 4
   }),
   description: Object.assign(Layout.body, { color: "white" }),
   tagsContainer: {
@@ -43,7 +45,6 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   tagsText: {
-    marginLeft: 5,
     fontSize: 12,
     color: Colors.SHELL_LIGHT_GRAY
   }

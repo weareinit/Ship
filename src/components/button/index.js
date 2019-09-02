@@ -1,18 +1,19 @@
 import React from "react";
 import { TouchableOpacity, Text } from "react-native";
+import { Layout, Button as ButtonWrapper } from "react-native-ui-kitten";
 
 import styles from "./styles";
 
 /**
- * returns a button
+ * Returns a button
  * @param {String} title
  * @param {Function} handlePress
  */
-const Button = props => {
+const Button = ({ title, ...rest }) => {
   return (
-    <TouchableOpacity style={styles.buttonStyles} onPress={props.handlePress}>
-      <Text style={styles.buttonText}>{props.title}</Text>
-    </TouchableOpacity>
+    <ButtonWrapper {...rest} style={styles.buttonStyles}>
+      {title}
+    </ButtonWrapper>
   );
 };
 

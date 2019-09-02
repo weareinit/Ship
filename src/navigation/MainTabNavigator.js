@@ -6,16 +6,16 @@ import {
   createBottomTabNavigator
 } from "react-navigation";
 
-import IconWrapper from "../components/iconWrapper";
+import IconWrapper from "../components/IconWrapper";
 import { tabBarOptions, defaultStyles, iconStyle } from "./styles";
 /**
  * App Main screens
  */
-import Home from "../screens/home";
-import Sponsor from "../screens/sponsor";
-import Map from "../screens/map";
-import Event from "../screens/event";
-import Profile from "../screens/profile";
+import Home from "../screens/Home";
+import Sponsor from "../screens/Sponsor";
+import Map from "../screens/Map";
+// import Event from "../screens/Event";
+import Profile from "../screens/Profile";
 
 const HomeStack = createStackNavigator(
   {
@@ -99,30 +99,30 @@ SponsorStack.navigationOptions = {
   tabBarOptions
 };
 
-const EventStack = createStackNavigator(
-  {
-    Schedule: Event
-  },
-  (style = defaultStyles)
-);
+// const EventStack = createStackNavigator(
+//   {
+//     Schedule: Event
+//   },
+//   (style = defaultStyles)
+// );
 
-EventStack.navigationOptions = {
-  tabBarLabel: <View />,
-  tabBarIcon: ({ focused }) => (
-    <IconWrapper
-      focused={focused}
-      style={iconStyle.style}
-      size={iconStyle.size}
-      name={Platform.OS === "ios" ? "ios-calendar" : "md-calendar"}
-    />
-  ),
-  tabBarOptions
-};
+// EventStack.navigationOptions = {
+//   tabBarLabel: <View />,
+//   tabBarIcon: ({ focused }) => (
+//     <IconWrapper
+//       focused={focused}
+//       style={iconStyle.style}
+//       size={iconStyle.size}
+//       name={Platform.OS === "ios" ? "ios-calendar" : "md-calendar"}
+//     />
+//   ),
+//   tabBarOptions
+// };
 
 export default createBottomTabNavigator(
   {
     Profile: { screen: ProfileStack },
-    Schedule: { screen: EventStack },
+    // Schedule: { screen: EventStack },
     Home: { screen: HomeStack },
     Map: { screen: MapStack },
     Sponsors: { screen: SponsorStack }

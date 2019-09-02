@@ -1,8 +1,8 @@
 import React from "react";
 import { StatusBar, View } from "react-native";
 
-import Loading from "../components/loading";
-import { isLoggedIn } from "../services";
+import Loading from "../components/Loading";
+import routes from "../services/routes";
 import { loadingStyles } from "./styles";
 
 class AuthLoadingScreen extends React.Component {
@@ -11,13 +11,13 @@ class AuthLoadingScreen extends React.Component {
     this._bootstrapAsync();
   }
 
-  /**
-   * Navigates to apropriate screen based on wether user is logged in or not
-   */
+  // Check if user is logged in then navigate to the appropriate screen
   _bootstrapAsync = async () => {
+    const route = routes.isAuthorized() ? "Main" : "Auth";
+    console.log(routes.isAuthorized());
     setTimeout(() => {
-      this.props.navigation.navigate(isLoggedIn ? "Main" : "Auth");
-    }, 1000); //timer is temporary...for testing purposes
+      this.props.navigation.navigate(route);
+    }, 1000); //timer is for testing purposes
   };
 
   render() {

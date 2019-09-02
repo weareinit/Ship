@@ -1,17 +1,17 @@
-import React from 'react';
-import { View, ActivityIndicator } from 'react-native';
+import React from "react";
+import { View, ActivityIndicator } from "react-native";
 
-import styles from './styles';
+import styles from "./styles";
 
 /**
- * @param {Number} size 
+ * @param {Number} size
  */
 const Loading = ({ size }) => {
-    return (
-        <View style={styles.spinnerContainer}>
-            <ActivityIndicator size={size} />
-        </View>
-    );
+  return (
+    <View style={styles.spinnerContainer}>
+      <ActivityIndicator size={size} />
+    </View>
+  );
 };
 
 export default Loading;

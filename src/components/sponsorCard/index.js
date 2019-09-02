@@ -1,7 +1,6 @@
 import React from "react";
 import {
   TouchableOpacity,
-  TouchableHighlight,
   ScrollView,
   Image,
   Modal,
@@ -14,8 +13,8 @@ import { SafeAreaView } from "react-navigation";
 
 import styles from "./styles";
 import Colors from "../../constants/Colors";
-import IconWrapper from "../../components/iconWrapper";
-import Button from "../../components/button";
+import IconWrapper from "../IconWrapper";
+import Button from "../Button";
 
 class SponsorCard extends React.Component {
   constructor(props) {

@@ -1,134 +1,120 @@
-import React from "react";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  Platform,
-  Image,
-  ImageBackground
-} from "react-native";
-import { SafeAreaView } from "react-navigation";
+import React, { Fragment, useState, useEffect } from "react";
+import { SafeAreaView, Image, Linking, Alert, StatusBar } from "react-native";
+import { Layout, Text } from "react-native-ui-kitten";
+import { Formik } from "formik";
 
-import { login } from "../../services";
-//themed components
-import { Button } from "../../components/button";
-import IconWrapper from "../../components/iconWrapper";
-import TextInput from "../../components/textInput";
+import validation from "../../utils/validation";
+import asyncQueries from "../../utils/asyncQueries";
+import routes from "../../services/routes";
+
+import TextInput from "../../components/Input";
+import Button from "../../components/Button";
 import styles from "./styles";
 
-const inputIconSize = 25;
+const AuthScreen = props => {
+  const [loading, setloading] = useState(false);
+  const { style, themedStyle, navigation, ...restProps } = props;
+  const { LoginValidation, LoginInitialValues } = validation;
 
-class AuthScreen extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      showLogin: false,
-      email: "",
-      password: ""
-    };
-
-    this._updateState = this._updateState.bind(this);
-  }
-
-  //removes nav header
-  static navigationOptions = {
-    Header: null
+  // Opens a URL on user's default browser
+  _openURL = url => {
+    Linking.openURL(url).catch(err => Alert("Something went wrong!", err));
   };
 
-  render() {
-    let display = this.state.showLogin ? (
-      <View style={styles.formContainer}>
-        <TextInput
-          title="Email"
-          placeholder="roary@fiu.edu"
-          secureText={false}
-          handleChange={text => this._updateState("email", text)}
-          size={inputIconSize}
-          iosIcon={"ios-mail"}
-          mdIcon={"md-mail"}
-          style={styles.inputIcons}
-        />
-        <TextInput
-          title="Password"
-          placeholder="*************"
-          secureText={true}
-          handleChange={text => this._updateState("password", text)}
-          size={inputIconSize}
-          iosIcon={"ios-lock"}
-          mdIcon={"md-lock"}
-          style={styles.inputIcons}
-        />
-
-        <Button title="Sign In" handlePress={this._signInAsync} />
-
-        <TouchableOpacity style={styles.backButton} onPress={this._toggleLogin}>
-          <IconWrapper
-            style={styles.inputIcons}
-            size={25}
-            name={Platform.OS === "ios" ? `ios-arrow-back` : `md-arrow-back`}
-          />
-          <Text>Go Back</Text>
-        </TouchableOpacity>
-      </View>
-    ) : (
-      <View style={styles.formContainer}>
-        <Button title="Sign In" handlePress={this._toggleLogin} />
-        <Button title="Forgot Password" handlePress={this._forgotPassword} />
-        <Button title="Register" handlePress={this._register} />
-      </View>
-    );
-
-    return (
-      <ImageBackground
-        source={{
-          uri:
-            "https://cdn.discordapp.com/attachments/399368683828281346/583735811418226690/beach-background.PNG"
-        }}
-        style={styles.background}
-      >
-        <SafeAreaView style={styles.container}>
-          <Image
-            style={styles.logo}
-            source={{
-              uri:
-                "https://cdn.designcrowd.com/blog/2016/January/top-company-logos-black/2_Disney_400.png"
-            }}
-            resizeMode="contain"
-          />
-          {display}
-          <View style={styles.layoutTrick} />
-        </SafeAreaView>
-      </ImageBackground>
-    );
-  }
-
-  _toggleLogin = () => {
-    this.setState(prevState => ({ showLogin: !prevState.showLogin }));
-  };
-
-  _signInAsync = async () => {
+  // Signin user then navigate to home screen
+  _signInAsync = values => {
     let credentials = {
-      email: this.state.email,
-      password: this.state.password
+      email: values.email,
+      password: values.password
     };
-
-    if (await login(credentials)) {
-      this.props.navigation.navigate("Main");
-    }
+    routes.login(credentials, props.navigation);
   };
 
-  _signOutAsync = async () => {
-    alert(this.state.email, this.state.password);
-    // await AsyncStorage.clear();
-    this.props.navigation.navigate("Auth");
+  // Wipe out user local data and navigate to auth scren
+  _signOutAsync = () => {
+    asyncQueries.clear();
+    props.navigation.navigate("Auth");
+    async;
   };
 
-  _updateState = (variable, value) => {
-    this.setState({ [variable]: value });
-  };
-
-  _forgotPassword = () => {};
-
-  _register = () => {};
-}
+  return (
+    <Layout style={styles.container} {...restProps}>
+      <SafeAreaView>
+        <Layout style={styles.form_container}>
+          <Formik
+            initialValues={LoginInitialValues}
+            validationSchema={LoginValidation}
+            onSubmit={values => _signInAsync(values)}
+          >
+            {({
+              values,
+              errors,
+              isValid,
+              handleChange,
+              handleSubmit,
+              setFieldTouched
+            }) => (
+              <Fragment>
+                <Image
+                  source={{
+                    uri:
+                      "http://www.hibarnsley.com/wp-content/uploads/2017/06/dummy-logo.png"
+                  }}
+                  style={styles.logo}
+                />
+                {errors.email && (
+                  <Text style={{ fontSize: 20, color: "red" }}>
+                    {errors.email}
+                  </Text>
+                )}
+                <TextInput
+                  placeholder="roary@fiu.edu"
+                  value={values.email}
+                  onChangeText={handleChange("email")}
+                  onBlur={() => setFieldTouched("email")}
+                  extraStyles={errors.email && { borderColor: "red" }}
+                />
+                <TextInput
+                  secureTextEntry={true}
+                  placeholder="•••••••••"
+                  value={values.password}
+                  onChangeText={handleChange("password")}
+                  onBlur={() => setFieldTouched("password")}
+                  extraStyles={errors.password && { borderColor: "red" }}
+                />
+                <Text
+                  style={styles.forgot_password}
+                  onPress={() => {
+                    _openURL(
+                      "https://dashboard.shellhacks.net/forgot-password"
+                    );
+                  }}
+                >
+                  Forgot your password?
+                </Text>
+                <Button
+                  title="Login"
+                  size="giant"
+                  disabled={!isValid}
+                  onPress={handleSubmit}
+                />
+                <Layout style={styles.signup_container}>
+                  <Text>Don't have an account? </Text>
+                  <Text
+                    style={styles.signup}
+                    onPress={() => {
+                      _openURL("https://dashboard.shellhacks.net/register");
+                    }}
+                  >
+                    Sign Up
+                  </Text>
+                </Layout>
+              </Fragment>
+            )}
+          </Formik>
+        </Layout>
+      </SafeAreaView>
+    </Layout>
+  );
+};
 export default AuthScreen;

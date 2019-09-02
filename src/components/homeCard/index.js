@@ -1,7 +1,7 @@
 import React from "react";
 import { View, TouchableOpacity, Text, Platform } from "react-native";
 import styles from "./styles";
-import IconWrapper from "../iconWrapper";
+import IconWrapper from "../IconWrapper";
 import Colors from "../../constants/Colors";
 class AnnoucementCard extends React.Component {
   constructor(props) {

@@ -1,9 +1,9 @@
 import { StyleSheet } from "react-native";
-import Colors from "../../constants/Colors";
 
 const styles = StyleSheet.create({
-  buttonStyles: {
-    borderRadius: 50,
+  textInput: {
+    borderRadius: 8,
+    width: "100%",
     marginBottom: 15
   }
 });

@@ -1,6 +1,8 @@
 import React from "react";
 import { Text, View, ListView } from "react-native";
-import ScheduleFilter from "../../components/scheduleFilter";
+
+import Filter from "../../components/scheduleFilter";
+import Card from '../../components/eventCard'
 import styles from "./styles";
 
 class Event extends React.Component {
@@ -18,8 +20,9 @@ class Event extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <ScheduleFilter />
-        <Text>Schedule</Text>
+        <Filter />
+        <Text style={styles.title}>What's happening</Text>
+        <Card />
       </View>
     );
   }

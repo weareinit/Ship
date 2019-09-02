@@ -5,11 +5,10 @@ import {
   View,
   Platform,
   Modal,
-  TouchableHighlight,
-  TouchableWithoutFeedback
+  TouchableHighlight
 } from "react-native";
 import { SafeAreaView } from "react-navigation";
-import IconWrapper from "../iconWrapper";
+import IconWrapper from "../IconWrapper";
 import styles from "./styles";
 import Colors from "../../constants/Colors";
 import Layout from "../../constants/Layout";
@@ -23,7 +22,7 @@ const filters = {
 };
 
 /**
- * returns a button group
+ * Returns a button group
  * @props {Function} generalIsActive
  * @props {Function} favoriteIsActive
  * @props {Function} whichFilterIsActive
